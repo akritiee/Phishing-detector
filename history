@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check History</title>
+</head>
+<body>
+    <h1>History of URL/Email Checks</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>URL</th>
+                <th>Email</th>
+                <th>Result</th>
+                <th>Reasons</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in entries %}
+            <tr>
+                <td>{{ entry.id }}</td>
+                <td>{{ entry.url or 'N/A' }}</td>
+                <td>{{ entry.email or 'N/A' }}</td>
+                <td>{{ entry.result }}</td>
+                <td>{{ entry.reasons }}</td>
+                <td>{{ entry.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/">Back to Main</a>
+</body>
+</html>
